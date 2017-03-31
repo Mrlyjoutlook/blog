@@ -75,3 +75,23 @@ server{
     ...
 }
 ```
+
+# Try_files规则
+
+try_files $uri $uri/ /index.php  
+假设请求为http://www.gopeak.cn/test，则$uri为test
+
+查找/$root/test文件  
+查找/$root/test/目录  
+发起/index.php的内部“子请求”
+
+# Rewrite规则
+
+rewrite ^/images/(.*).(png|jpg|gif)$ /images?name=$1.$4 last;
+
+上面的rewrite规则会将文件名改写到参数中  
+
+last : 相当于Apache的[L]标记，表示完成rewrite  
+break : 停止执行当前虚拟主机的后续rewrite指令集  
+redirect : 返回302临时重定向，地址栏会显示跳转后的地址  
+permanent : 返回301永久重定向，地址栏会显示跳转后的地址  
