@@ -36,6 +36,7 @@ var Jie = React.createClass({
 
 ```
 /*class*/
+
 import React, {Component} from 'react'
 class Jie extends Component {
   render() {
@@ -44,6 +45,7 @@ class Jie extends Component {
 }
 
 /*function 无状态,对于展示类的组件，使用这类写法最好不过了*/
+
 const Greeting = (props) => {
    return <div>{props.name}</div>
 };
@@ -69,6 +71,7 @@ var Greeting = React.createClass({
 
 ```
 /*function和es6 class的静态属性或方法的定义只能单独在name后*/
+
 class JieContainer extends Component {}
 JieContainer.propTypes={};
 JieContainer.defaultProps={};
@@ -87,9 +90,9 @@ class JieContainer extends Component {
 
 ## state
 
-- es6的构造方法constructor中this关键字则代表实例对象，constructor方法默认返回实例对象（this，所以也可以指定对象返回），constructor指向类本身。
-- es6类中的方法都是定义在类的prototype属性上，如同构造函数的prototype属性。
-- es6继承，子类是没有自己的this对象，而是继承父类的this对象，然后对其进行加工，故需要在constructor中调用super方法。es5使用构造器方法来继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)），es6的继承实质是先调用super创造父类的实例对象this，再用子类的构造函数修改this。
+- es6的构造方法`constructor`中`this`关键字则代表实例对象，`constructor`方法默认返回实例对象（this，所以也可以指定对象返回），`constructor`指向类本身。
+- es6类中的方法都是定义在类的`prototype`属性上，如同构造函数的`prototype`属性。
+- es6继承，子类是没有自己的`this`对象，而是继承父类的`this`对象，然后对其进行加工，故需要在`constructor`中调用`super`方法。es5使用构造器方法来继承，实质是先创造子类的实例对象`this`，然后再将父类的方法添加到`this`上面（Parent.apply(this)），es6的继承实质是先调用super创造父类的实例对象`this`，再用子类的构造函数修改`this`。
 
 **before es5**
 
@@ -128,16 +131,19 @@ class Counter extends React.Component {
 
 ```
 // state.count 当前为 0
+
 this.setState({count: state.count + 1});
 this.setState({count: state.count + 1});
 this.setState({count: state.count + 1});
+
 // state.count 现在是 1，而不是 3 
 ```
 
 setState 支持2个参数，1：{} 或者 function(preState,props),2：function 更新成功后的回调函数  
 
 ```
-上面的解决方法
+/*上面的解决方法*/
+
 this.setState((prevState) => ({
   count: prevState.count + 1
 }));
@@ -162,6 +168,7 @@ class Counter extends React.Component {
 
 ```
 /*由于箭头函数没有自己this，toString方法中调用this是来自类的实例*/
+
 class Counter extends React.Component {
   constructor(props) {
     super(props);
@@ -179,7 +186,9 @@ class Counter extends React.Component {
 
 ```
 const name = this.state.name;
+
 //or
+
 const namer = this.state.name;
 
 function MyComponent(props) {
@@ -193,7 +202,9 @@ function MyComponent(props) {
 
 ```
 const {name} = this.state;
+
 //or
+
 const {name:namer} = this.state;
 
 function MyComponent({name}) {
@@ -219,6 +230,7 @@ function MyComponent({name}) {
 
 抛开一些依赖可以采取另一种解决方式IIFE,虽然会有点性能牺牲，但代码的维护性和可读行就相对提高很多。
 
+```
 ...
 <div>
 {
