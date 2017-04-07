@@ -130,11 +130,11 @@ class Counter extends React.Component {
 - 同时多次调头setState函数所产生的效果会被合并
 
 ```
-// state.count 当前为 0
+// state.count 当前为 0  
 
 this.setState({count: state.count + 1});
 this.setState({count: state.count + 1});
-this.setState({count: state.count + 1});
+this.setState({count: state.count + 1});  
 
 // state.count 现在是 1，而不是 3 
 ```
@@ -164,10 +164,10 @@ class Counter extends React.Component {
 }
 ```
 
-**after**
+**after**  
+由于箭头函数没有自己this，toString方法中调用this是来自类的实例
 
 ```
-/*由于箭头函数没有自己this，toString方法中调用this是来自类的实例*/
 
 class Counter extends React.Component {
   constructor(props) {
@@ -187,7 +187,7 @@ class Counter extends React.Component {
 ```
 const name = this.state.name;
 
-//or
+//or  
 
 const namer = this.state.name;
 
@@ -203,7 +203,7 @@ function MyComponent(props) {
 ```
 const {name} = this.state;
 
-//or
+//or  
 
 const {name:namer} = this.state;
 
@@ -219,19 +219,16 @@ function MyComponent({name}) {
 当出现大量的判读时候，三元运算符可读性会显得极差
 
 ```
-...
 <div>
 {
     props.bool ? ** : ** ? ** : ** ? ...
 }
 </div>
-...
 ```
 
 抛开一些依赖可以采取另一种解决方式IIFE,虽然会有点性能牺牲，但代码的维护性和可读行就相对提高很多。
 
 ```
-...
 <div>
 {
     (()=>{
@@ -243,7 +240,6 @@ function MyComponent({name}) {
     })()
 }
 </div>
-...
 ```
 
 若只是判读渲染某个元素的话
