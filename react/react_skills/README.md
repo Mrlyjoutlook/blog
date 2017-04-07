@@ -1,4 +1,4 @@
-# React Skill
+# React Skills
 **react使用技巧和最佳实践**  
 本文会根据react动向持续更新！
 
