@@ -1,6 +1,6 @@
 # React Skills
 **react使用技巧和最佳实践**  
-本文会根据react动向持续更新！
+本文会根据react动向持续更新！react 16.0.0版本Fiber算法，性能将大大提升！
 
 # Tool
 因为`jsx`语法浏览器上不支持，所以使用react技术栈开发都需要借助`babel`，及它的扩展插件来进行转码编译。react搭配的开发构建工具建议使用为`webpack`。
@@ -22,6 +22,8 @@ import './styles/**.css'
 # components
 
 **before**
+
+在react 15.5.0的版本createClass api将出现废弃警告，并提供create-react-class单独的模块，使用方法和createClass一样。16.0.0版本即将废弃！
 
 ```
 var React = require("react")
