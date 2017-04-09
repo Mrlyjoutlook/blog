@@ -56,6 +56,8 @@ const Greeting = (props) => {
 # propTypes 和 defaultProps
 `propTypes` 和 `defaultProps` 是静态的属性
 
+在15.5.0 react中propTypes api被独立成了一个新的包 prop-types；
+
 **before es5**
 
 ```
