@@ -2,7 +2,7 @@
 **react使用技巧和最佳实践**  
 本文会根据react动向持续更新！react 16.0.0版本Fiber算法，性能将大大提升！
 
-# Tool
+## Tool
 因为`jsx`语法浏览器上不支持，所以使用react技术栈开发都需要借助`babel`，及它的扩展插件来进行转码编译。react搭配的开发构建工具建议使用为`webpack`。
 
 - `babel-loader`:webpack的loader插件
@@ -10,7 +10,7 @@
 - `babel-preset-react`:react语法
 - `babel-preset-stage-0`es7语法提案，已经有多个版本
 
-# CSS
+## CSS
 CSS的规范用法在前端发展的领域中不断的演变，从CSS模块，`Css in JavaScript`中可以看出CSS发展，尤其是React对前端HTML,JS,CSS三者一起混合使用。一个组件包含着结构、样式和逻辑，完全违背了"关注点分离"的原则，使得很多人都不适应，早期传统倡导的是html，css，js分离，到最后组件化思路，从另一个角度上思考，react的做法有利于组件的隔离。每个组件包含了所有需要用到的代码，不依赖外部，组件之间没有耦合，更加放便复用。  
 
 但目前`Css in JavaScript`仍然没有更好的解决的方案。目前最好的方式是一个组件一个css文件，再把其引入。
@@ -19,7 +19,7 @@ CSS的规范用法在前端发展的领域中不断的演变，从CSS模块，`C
 import './styles/**.css'
 ```
 
-# components
+## components
 
 **before**
 
@@ -53,7 +53,7 @@ const Greeting = (props) => {
 };
 ```
 
-# propTypes 和 defaultProps
+## propTypes 和 defaultProps
 `propTypes` 和 `defaultProps` 是静态的属性
 
 在15.5.0 react中propTypes api被独立成了一个新的包 prop-types；
@@ -90,9 +90,9 @@ class JieContainer extends Component {
 }
 ```
 
-# state,setState
+## state,setState
 
-## state
+### state
 
 - es6的构造方法`constructor`中`this`关键字则代表实例对象，`constructor`方法默认返回实例对象（this，所以也可以指定对象返回），`constructor`指向类本身。
 - es6类中的方法都是定义在类的`prototype`属性上，如同构造函数的`prototype`属性。
@@ -127,7 +127,7 @@ class Counter extends React.Component {
 }
 ```
 
-## setState
+### setState
 
 - setState在调用的过程中不会立即改变state中的值
 - 更新state过程来引发重新绘制
@@ -153,7 +153,7 @@ this.setState((prevState) => ({
 }));
 ```
 
-# function this
+## function this
 
 为了确保每个方法被调用的时都绑定正确的this，以及避免渲染时重复绑定，在es6时候我们通常这么写。
 
@@ -184,7 +184,7 @@ class Counter extends React.Component {
 
 ```
 
-# Destructuring（解构 state,props）
+## Destructuring（解构 state,props）
 
 **before**
 
@@ -218,7 +218,7 @@ function MyComponent({name}) {
 }
 ```
 
-# JSX 三元运算符
+## JSX 三元运算符
 
 当出现大量的判读时候，三元运算符可读性会显得极差
 
@@ -263,7 +263,7 @@ function MyComponent({name}) {
 }
 ```
 
-# Arrow Funciton
+## Arrow Funciton
 
 **箭头函数没有this**，当=>后面没有{}，则相当于return
 
@@ -273,7 +273,7 @@ const fun = () => {}
 const fun = ({name}) => (<div>{name}</div>) === const fun = ({name}) => {return (<div>{name}</div>) }
 ```
 
-# Extended operator
+## Extended operator
 
 扩展运算符,切勿把大量数据使用扩展运算符传递，因为会造成非常昂贵的计算，应该按需传递
 
@@ -285,7 +285,7 @@ const fun = (props) => (<MyComponent {...props} />)
 const fun = ({name,sex}) => (<MyComponent name={name} sex={sex} />)
 ```
 
-# 闭包
+## 闭包
 
 向子组件传递function时候尽量避免直接写函数，因为每次渲染时候都会创建函数并传递到子组件，造成性能浪费。
 

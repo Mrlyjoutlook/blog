@@ -3,7 +3,7 @@
 - 下面案例中服务器nginx目录路径假设为`/home/ubuntu/nginx/`
 - 服务器查询当前目录路径命令 pwd
 
-# 多配置文件
+## 多配置文件
 
 在`/home/ubuntu/nginx/include/`下存在`**.a.gopeak.cn.conf` `**.a.gopeak.cn.conf`。  
 
@@ -25,7 +25,7 @@ http:{
 sudo ln -s path/to/nginx.conf /home/ubuntu/nginx/conf/include/**.gopeak.cn.conf
 ```
 
-# 全局变量
+## 全局变量
 
 - $args ： 这个变量等于请求行中的参数，同`$query_string`
 - $content_length ： 请求头中的`Content-length`字段
@@ -49,11 +49,11 @@ sudo ln -s path/to/nginx.conf /home/ubuntu/nginx/conf/include/**.gopeak.cn.conf
 - $uri ： 不带请求参数的当前URI，$uri不包含主机名，如`/foo/bar.html`
 - $document_uri ： 与`$uri`相同
 
-# listen
+## listen
 
 一般监听端口 80
 
-# server_name
+## server_name
 
 实现多个域名对多个应该端口的匹配，支持前，后缀通配符，正则表达式。
 
@@ -64,7 +64,7 @@ server{
 }
 ```
 
-# location
+## location
 
 地址查找规则
 
@@ -76,7 +76,7 @@ server{
 }
 ```
 
-# Try_files规则
+## Try_files规则
 
 try_files $uri $uri/ /index.php  
 假设请求为http://www.gopeak.cn/test，则$uri为test
@@ -85,7 +85,7 @@ try_files $uri $uri/ /index.php
 查找/$root/test/目录  
 发起/index.php的内部“子请求”
 
-# Rewrite规则
+## Rewrite规则
 
 rewrite ^/images/(.*).(png|jpg|gif)$ /images?name=$1.$4 last;
 
