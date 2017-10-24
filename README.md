@@ -6,6 +6,10 @@ Synchronize to b blog site [Jie Blog](http://mrlyj.gopeak.cn/post/)
 ## 2017.
 曲曲折折 
 
+### October
+
+- `10.24` [react-narive开发n种姿势](https://github.com/Mrlyjoutlook/blog/blob/master/react-native/development.md)
+
 ### June
 
 - `06.09` [h5小知识,容易忽忘的skills记录](https://github.com/Mrlyjoutlook/blog/blob/master/h5/h5_skills.md)
